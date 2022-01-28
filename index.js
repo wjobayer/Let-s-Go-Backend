@@ -100,28 +100,28 @@ async function run() {
         res.send(result);
     });
         //update
-    app.put("/updatestatus/:id", (req, res) => {
-        const id = req.params.id;
-        const updatedStatus = req.body.status;
-        const filter = { _id: ObjectId(id) };
-        console.log(updatedStatus);
-        orderCollection
-          .updateOne(filter, {
-            $set: { status: updatedStatus },
-          })
-          .then((result) => {
-            res.send(result);
-          });
-      });
+    // app.put("/updatestatus/:id", (req, res) => {
+    //     const id = req.params.id;
+    //     const updatedStatus = req.body.status;
+    //     const filter = { _id: ObjectId(id) };
+    //     console.log(updatedStatus);
+    //     orderCollection
+    //       .updateOne(filter, {
+    //         $set: { status: updatedStatus },
+    //       })
+    //       .then((result) => {
+    //         res.send(result);
+    //       });
+    //   });
         //update post approval
     app.put("/postapproval/:id", (req, res) => {
         const id = req.params.id;
-        const updatedStatus = req.body.status;
+        const updatedStatus = req.body.approve;
         const filter = { _id: ObjectId(id) };
         console.log(updatedStatus);
         productsCollection
           .updateOne(filter, {
-            $set: { status: updatedStatus },
+            $set: { approve: updatedStatus },
           })
           .then((result) => {
             res.send(result);
